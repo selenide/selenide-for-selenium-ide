@@ -1,0 +1,14 @@
+{
+  "name": "Selenide",
+  "version": "1.0.0",
+  "exports": {
+    "vendor": [
+      {
+        "java-selenide": "Java Selenide"
+      }
+    ]
+  },
+  "dependencies": {
+    "selenium-webdriver": "3.6.0"
+  }
+}
