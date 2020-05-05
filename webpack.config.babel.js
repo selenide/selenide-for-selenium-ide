@@ -27,7 +27,6 @@ export default {
   context: path.resolve(__dirname, "src"),
   devtool: isProduction ? "source-map" : false,
   entry: {
-    content: ["./content"],
     background: ["./background"]
   },
   output: {
