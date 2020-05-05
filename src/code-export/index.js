@@ -1,5 +1,5 @@
 import {codeExport as exporter} from '@seleniumhq/side-utils'
-import emitter from './commands'
+import emitter from './command'
 import location from './location'
 import {generateHooks} from './hook'
 
