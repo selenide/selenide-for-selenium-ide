@@ -1,7 +1,7 @@
 import browser from 'webextension-polyfill'
 import UAParser from 'ua-parser-js'
 import pluginManifest from './plugin-manifest.json'
-import emitters from './code-export/index'
+import emitters from '../code-export/index'
 
 const util = require('util')
 
