@@ -2,7 +2,7 @@
   "name": "selenium-ide-extension-boilerplate",
   "version": "3.6.0",
   "repository": "git@github.com:SeleniumHQ/selenium-ide.git",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "private": true,
   "scripts": {
     "build": "webpack",

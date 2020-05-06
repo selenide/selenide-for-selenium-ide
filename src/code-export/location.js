@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.emit = emit;
 exports.default = void 0;
 
-var _sideUtils = require("@seleniumhq/side-utils");
+let _sideUtils = require("@seleniumhq/side-utils");
 
 const emitters = {
   id: emitId,
@@ -22,7 +22,7 @@ function emit(location) {
   return _sideUtils.codeExport.emit.location(location, emitters);
 }
 
-var _default = {
+let _default = {
   emit
 };
 exports.default = _default;

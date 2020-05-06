@@ -1,32 +1,30 @@
-import browser from 'webextension-polyfill'
-import UAParser from 'ua-parser-js'
-import pluginManifest from './plugin-manifest.json'
-import emitters from '../code-export/index'
+import browser from 'webextension-polyfill';
+import UAParser from 'ua-parser-js';
+import pluginManifest from './plugin-manifest.json';
+import emitters from '../code-export/index';
 
-const util = require('util')
-
-const parser = new UAParser(window.navigator.userAgent)
-const browserName = parser.getBrowser().name
-const isChrome = browserName === 'Chrome'
-const isFirefox = browserName === 'Firefox'
+const parser = new UAParser(window.navigator.userAgent);
+const browserName = parser.getBrowser().name;
+const isChrome = browserName === 'Chrome';
+const isFirefox = browserName === 'Firefox';
 
 function getId() {
-  if (process.env.SIDE_ID) return process.env.SIDE_ID
+  if (process.env.SIDE_ID) return process.env.SIDE_ID;
   return isChrome
     ? 'mooikfkahbdckldjjndioackbalphokd'
     : isFirefox
       ? '{a6fd85ed-e919-4a43-a5af-8da18bda539f}'
-      : ''
+      : '';
 }
 
-const seideId = getId()
+const seideId = getId();
 
 function startPolling(payload) {
   setInterval(() => {
     browser.runtime
       .sendMessage(seideId, {
         uri: '/health',
-        verb: 'get',
+        verb: 'get'
       })
       .catch(res => ({error: res.message}))
       .then(res => {
@@ -34,14 +32,14 @@ function startPolling(payload) {
           browser.runtime.sendMessage(seideId, {
             uri: '/register',
             verb: 'post',
-            payload,
-          })
+            payload
+          });
         }
-      })
-  }, 1000)
+      });
+  }, 1000);
 }
 
-startPolling(pluginManifest)
+startPolling(pluginManifest);
 
 browser.runtime.onMessageExternal.addListener(
   (message, sender, sendResponse) => {
@@ -94,9 +92,9 @@ browser.runtime.onMessageExternal.addListener(
           });
       }
 
-      return true
+      return true;
     } else {
-      sendResponse(true)
+      sendResponse(true);
     }
   }
-)
+);

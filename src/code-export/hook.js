@@ -1,4 +1,4 @@
-import {codeExport as exporter} from '@seleniumhq/side-utils'
+import {codeExport as exporter} from '@seleniumhq/side-utils';
 
 const emitters = {
   afterAll,
@@ -9,19 +9,19 @@ const emitters = {
   declareMethods: empty,
   declareVariables,
   inEachBegin: empty,
-  inEachEnd: empty,
-}
+  inEachEnd: empty
+};
 
 function generate(hookName) {
-  return new exporter.hook(emitters[hookName]())
+  return new exporter.hook(emitters[hookName]());
 }
 
 export function generateHooks() {
-  let result = {}
+  let result = {};
   Object.keys(emitters).forEach(hookName => {
-    result[hookName] = generate(hookName)
-  })
-  return result
+    result[hookName] = generate(hookName);
+  });
+  return result;
 }
 
 function afterAll() {
@@ -29,15 +29,15 @@ function afterAll() {
     startingSyntax: {
       commands: [
         {level: 0, statement: '@AfterAll'},
-        {level: 0, statement: 'public static void finalTearDown() {'},
-      ],
+        {level: 0, statement: 'public static void finalTearDown() {'}
+      ]
     },
     endingSyntax: {
-      commands: [{level: 0, statement: '}'}],
+      commands: [{level: 0, statement: '}'}]
     },
-    registrationLevel: 1,
-  }
-  return params
+    registrationLevel: 1
+  };
+  return params;
 }
 
 function afterEach() {
@@ -45,14 +45,14 @@ function afterEach() {
     startingSyntax: {
       commands: [
         {level: 0, statement: '@AfterEach'},
-        {level: 0, statement: 'public void tearDown() {'},
-      ],
+        {level: 0, statement: 'public void tearDown() {'}
+      ]
     },
     endingSyntax: {
-      commands: [{level: 0, statement: '}'}],
-    },
-  }
-  return params
+      commands: [{level: 0, statement: '}'}]
+    }
+  };
+  return params;
 }
 
 function beforeAll() {
@@ -60,14 +60,14 @@ function beforeAll() {
     startingSyntax: {
       commands: [
         {level: 0, statement: '@BeforeAll'},
-        {level: 0, statement: 'public static void initialSetUp() {'},
-      ],
+        {level: 0, statement: 'public static void initialSetUp() {'}
+      ]
     },
     endingSyntax: {
-      commands: [{level: 0, statement: '}'}],
+      commands: [{level: 0, statement: '}'}]
     },
-    registrationLevel: 1,
-  }
+    registrationLevel: 1
+  };
 }
 
 function beforeEach() {
@@ -77,21 +77,21 @@ function beforeEach() {
         {level: 0, statement: '@BeforeEach'},
         {
           level: 0,
-          statement: `public void setUp() {`,
+          statement: `public void setUp() {`
         },
         {
           level: 1,
           statement: gridUrl
             ? `Configuration.browser = "${browserName ? browserName.toLowerCase() : 'chrome'}";\n    Configuration.remote = "${gridUrl}";`
-            : `Configuration.browser = "${browserName ? browserName.toLowerCase() : 'chrome'}";`,
+            : `Configuration.browser = "${browserName ? browserName.toLowerCase() : 'chrome'}";`
         },
-        {level: 1, statement: 'vars = new HashMap<>();'},
-      ],
+        {level: 1, statement: 'vars = new HashMap<>();'}
+      ]
     }),
     endingSyntax: {
-      commands: [{level: 0, statement: '}'}],
-    },
-  }
+      commands: [{level: 0, statement: '}'}]
+    }
+  };
 }
 
 function declareDependencies() {
@@ -112,11 +112,11 @@ function declareDependencies() {
         {level: 0, statement: 'import static org.junit.jupiter.api.Assertions.*;'},
         {level: 0, statement: 'import org.openqa.selenium.Dimension;'},
         {level: 0, statement: 'import org.openqa.selenium.Keys;'},
-        {level: 0, statement: 'import java.util.*;'},
-      ],
-    },
-  }
-  return params
+        {level: 0, statement: 'import java.util.*;'}
+      ]
+    }
+  };
+  return params;
 }
 
 function declareVariables() {
@@ -125,14 +125,14 @@ function declareVariables() {
       commands: [
         {
           level: 0,
-          statement: 'private Map<String, Object> vars;',
-        },
-      ],
-    },
-  }
-  return params
+          statement: 'private Map<String, Object> vars;'
+        }
+      ]
+    }
+  };
+  return params;
 }
 
 function empty() {
-  return {}
+  return {};
 }
