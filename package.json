@@ -5,11 +5,14 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "start": "webpack-dev-server --hot",
     "build": "webpack",
     "build:prod": "rm -rf build && env NODE_ENV=production yarn build",
     "test": "jest",
     "lint": "eslint webpack.config.babel.js src/ --ext .js --ext .jsx",
-    "watch": "yarn build -w"
+    "watch": "yarn build -w",
+    "release-prep": "yarn && yarn test && yarn build && yarn lint",
+    "postpublish": "yarn build:prod && npx ./gh-release.js"
   },
   "jest": {
     "testMatch": [
@@ -40,7 +43,9 @@
     "postcss-loader": "^2.0.6",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.5.6"
+    "webpack": "^3.5.6",
+    "putasset": "^4.3.2",
+    "grizzly": "^4.0.1"
   },
   "dependencies": {
     "webextension-polyfill": "https://github.com/corevo/webextension-polyfill#2cc27453b501e4426eb6741943fbb4041c0d18f5",
