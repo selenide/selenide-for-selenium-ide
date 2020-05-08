@@ -46,7 +46,7 @@ browser.runtime.onMessageExternal.addListener(
     if (message.action === 'export' && message.entity === 'vendor') {
 
       const options = message.options;
-      const url = options.url;
+      const baseUrl = options.url;
       const test = options.test;
       const tests = options.tests;
       const suite = options.suite;
@@ -59,7 +59,7 @@ browser.runtime.onMessageExternal.addListener(
       if (suite) {
         emitters.emit
           .suite({
-            url,
+            baseUrl,
             suite,
             tests,
             project,
@@ -76,7 +76,7 @@ browser.runtime.onMessageExternal.addListener(
       } else {
         emitters.emit
           .test({
-            url,
+            baseUrl,
             test,
             tests,
             project,
