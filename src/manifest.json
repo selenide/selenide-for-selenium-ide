@@ -2,8 +2,8 @@
   "description": "Selenide code-export plugin for Selenium IDE",
   "manifest_version": 2,
   "name": "Selenide for Selenium IDE",
-  "version": "1.0.0",
-  "version_name": "1.0.0",
+  "version": "0.1.0",
+  "version_name": "0.1.0",
   "homepage_url": "https://github.com/selenide/selenide-for-selenium-ide",
   "permissions": [],
   "content_security_policy": "script-src 'self'; object-src 'self'",
@@ -15,6 +15,7 @@
   "icons": {
     "64": "icons/icon64.png",
     "96": "icons/icon96.png"
+    "128": "icons/icon128.png"
   },
   "background": {
     "scripts": [
