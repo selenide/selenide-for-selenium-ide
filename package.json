@@ -10,7 +10,6 @@
     "build:prod": "rm -rf build && env NODE_ENV=production yarn build",
     "test": "jest",
     "lint": "eslint webpack.config.babel.js src/ --ext .js --ext .jsx",
-    "watch": "yarn build -w",
     "release-prep": "yarn && yarn test && yarn build && yarn lint",
     "postpublish": "yarn build:prod && npx ./gh-release.js"
   },
