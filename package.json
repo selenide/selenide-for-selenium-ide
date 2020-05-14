@@ -1,6 +1,6 @@
 {
   "name": "selenium-ide-extension-boilerplate",
-  "version": "3.6.0",
+  "version": "0.1.0",
   "repository": "git@github.com:SeleniumHQ/selenium-ide.git",
   "license": "MIT",
   "private": true,
@@ -10,7 +10,10 @@
     "build:prod": "rm -rf build && env NODE_ENV=production yarn build",
     "test": "jest",
     "lint": "eslint webpack.config.babel.js src/ --ext .js --ext .jsx",
+    "version": "node scripts/version.js && git add src/manifest.json",
     "release-prep": "yarn && yarn test && yarn build && yarn lint",
+    "release:firefox": "cd build && web-ext-submit",
+    "release:chrome": "cd build && webstore upload --auto-publish",
     "postpublish": "yarn build:prod && npx ./gh-release.js"
   },
   "jest": {
@@ -20,15 +23,15 @@
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
-    "babel-loader": "^8.1.0",
-    "babel-jest": "^26.0.0",
-    "babel-eslint": "^10.0.1",
-    "@babel/plugin-proposal-decorators": "^7.3.0",
     "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.3.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.6.2",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^26.0.0",
+    "babel-loader": "^8.1.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.7",
     "eslint": "^4.15.0",
@@ -36,19 +39,21 @@
     "eslint-plugin-jest": "^21.6.1",
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
+    "grizzly": "^4.0.1",
     "html-webpack-plugin": "^2.30.1",
     "jest": "^24.9.0",
     "postcss-flexbugs-fixes": "^3.2.0",
     "postcss-loader": "^2.0.6",
+    "putasset": "^4.3.2",
     "style-loader": "^0.18.2",
     "url-loader": "^0.5.9",
-    "webpack": "^3.5.6",
-    "putasset": "^4.3.2",
-    "grizzly": "^4.0.1"
+    "chrome-webstore-upload-cli": "^1.2.0",
+    "web-ext-submit": "^3.1.1",
+    "webpack": "^3.5.6"
   },
   "dependencies": {
-    "webextension-polyfill": "https://github.com/corevo/webextension-polyfill#2cc27453b501e4426eb6741943fbb4041c0d18f5",
+    "@seleniumhq/side-utils": "^3.16.0",
     "ua-parser-js": "^0.7.19",
-    "@seleniumhq/side-utils": "^3.16.0"
+    "webextension-polyfill": "https://github.com/corevo/webextension-polyfill#2cc27453b501e4426eb6741943fbb4041c0d18f5"
   }
 }
