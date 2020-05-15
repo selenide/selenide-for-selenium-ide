@@ -105,7 +105,6 @@ function declareDependencies() {
         {level: 0, statement: 'import org.junit.jupiter.api.AfterEach;'},
         {level: 0, statement: 'import com.codeborne.selenide.Configuration;'},
         {level: 0, statement: 'import com.codeborne.selenide.Selectors;'},
-        {level: 0, statement: 'import com.codeborne.selenide.Selenide;'},
         {level: 0, statement: 'import com.codeborne.selenide.WebDriverRunner;'},
         {level: 0, statement: 'import static com.codeborne.selenide.Condition.*;'},
         {level: 0, statement: 'import static com.codeborne.selenide.Selenide.*;'},

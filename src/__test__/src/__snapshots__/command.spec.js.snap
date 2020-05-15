@@ -6,13 +6,13 @@ exports[`command code emitter should emit 'verify selected label' command 1`] = 
 
 exports[`command code emitter should emit \`add selection\` command 1`] = `"$(\\"select\\").selectOption(\\"A label\\");"`;
 
-exports[`command code emitter should emit \`answer on visible prompt\` command 1`] = `"Selenide.prompt(\\"an answer\\");"`;
+exports[`command code emitter should emit \`answer on visible prompt\` command 1`] = `"prompt(\\"an answer\\");"`;
 
-exports[`command code emitter should emit \`assert alert\` command 1`] = `"assertEquals(Selenide.switchTo().alert().getText(), \\"an alert\\");"`;
+exports[`command code emitter should emit \`assert alert\` command 1`] = `"assertEquals(switchTo().alert().getText(), \\"an alert\\");"`;
 
 exports[`command code emitter should emit \`assert checked\` command 1`] = `"$(\\"#check\\").shouldBe(selected);"`;
 
-exports[`command code emitter should emit \`assert confirmation\` command 1`] = `"assertEquals(Selenide.switchTo().alert().getText(), \\"a confirmation\\");"`;
+exports[`command code emitter should emit \`assert confirmation\` command 1`] = `"assertEquals(switchTo().alert().getText(), \\"a confirmation\\");"`;
 
 exports[`command code emitter should emit \`assert editable\` command 1`] = `"$(\\"#text\\").shouldBe(enabled, not(readonly));"`;
 
@@ -28,13 +28,13 @@ exports[`command code emitter should emit \`assert not selected value\` command 
 
 exports[`command code emitter should emit \`assert not text\` command 1`] = `"$(\\"#test\\").shouldNotHave(text(\\"text\\"));"`;
 
-exports[`command code emitter should emit \`assert prompt\` command 1`] = `"assertEquals(Selenide.switchTo().alert().getText(), \\"a prompt\\");"`;
+exports[`command code emitter should emit \`assert prompt\` command 1`] = `"assertEquals(switchTo().alert().getText(), \\"a prompt\\");"`;
 
 exports[`command code emitter should emit \`assert selected value\` command 1`] = `"$(\\"#select\\").shouldHave(value(\\"test\\"));"`;
 
 exports[`command code emitter should emit \`assert text\` command 1`] = `"$(\\"#test\\").shouldHave(text(\\"some text that should be here\\"));"`;
 
-exports[`command code emitter should emit \`assert title\` command 1`] = `"assertEquals(Selenide.title(), \\"example title\\");"`;
+exports[`command code emitter should emit \`assert title\` command 1`] = `"assertEquals(title(), \\"example title\\");"`;
 
 exports[`command code emitter should emit \`assert value\` command 1`] = `"$(\\"#select\\").shouldHave(value(\\"test\\"));"`;
 
@@ -42,9 +42,9 @@ exports[`command code emitter should emit \`assert\` command 1`] = `"assertEqual
 
 exports[`command code emitter should emit \`check\` command 1`] = `"$(\\"#f\\").setSelected(true);"`;
 
-exports[`command code emitter should emit \`choose cancel on visible prompt\` command 1`] = `"Selenide.dismiss();"`;
+exports[`command code emitter should emit \`choose cancel on visible prompt\` command 1`] = `"dismiss();"`;
 
-exports[`command code emitter should emit \`choose ok on visible confirmation\` command 1`] = `"Selenide.confirm();"`;
+exports[`command code emitter should emit \`choose ok on visible confirmation\` command 1`] = `"confirm();"`;
 
 exports[`command code emitter should emit \`click at\` command 1`] = `"$(Selectors.byLinkText(\\"button\\")).click();"`;
 
@@ -72,13 +72,13 @@ exports[`command code emitter should emit \`echo\` command with variables 1`] = 
 exports[`command code emitter should emit \`edit content\` command 1`] = `
 "{
   SelenideElement element = $(\\"#contentEditable\\");
-  Selenide.executeJavaScript(\\"if(arguments[0].contentEditable === 'true') {arguments[0].innerText = '<button>test</button>'}\\", element);
+  executeJavaScript(\\"if(arguments[0].contentEditable === 'true') {arguments[0].innerText = '<button>test</button>'}\\", element);
 }"
 `;
 
 exports[`command code emitter should emit \`else if\` command 1`] = `
 Object {
-  "body": "} else if ((Boolean) Selenide.executeJavaScript(\\"return (true)\\")) {",
+  "body": "} else if ((Boolean) executeJavaScript(\\"return (true)\\")) {",
   "endingLevel": 1,
 }
 `;
@@ -97,11 +97,11 @@ Object {
 }
 `;
 
-exports[`command code emitter should emit \`execute async script\` command 1`] = `"vars.put(\\"myVar\\", Selenide.executeAsyncJavaScript(\\"var callback = arguments[arguments.length - 1];javascript.then(callback).catch(callback);\\"));"`;
+exports[`command code emitter should emit \`execute async script\` command 1`] = `"vars.put(\\"myVar\\", executeAsyncJavaScript(\\"var callback = arguments[arguments.length - 1];javascript.then(callback).catch(callback);\\"));"`;
 
-exports[`command code emitter should emit \`execute script\` command 1`] = `"vars.put(\\"myVar\\", Selenide.executeJavaScript(\\"javascript\\"));"`;
+exports[`command code emitter should emit \`execute script\` command 1`] = `"vars.put(\\"myVar\\", executeJavaScript(\\"javascript\\"));"`;
 
-exports[`command code emitter should emit \`execute script\` command with return string value 1`] = `"vars.put(\\"myVar\\", Selenide.executeJavaScript(\\"return 'a'\\"));"`;
+exports[`command code emitter should emit \`execute script\` command with return string value 1`] = `"vars.put(\\"myVar\\", executeJavaScript(\\"return 'a'\\"));"`;
 
 exports[`command code emitter should emit \`forEach\` command 1`] = `
 Object {
@@ -114,48 +114,48 @@ for (int iIteratorVar = 0; iIteratorVar < collectionCollection.size() - 1; iIter
 
 exports[`command code emitter should emit \`if\` command 1`] = `
 Object {
-  "body": "if ((Boolean) Selenide.executeJavaScript(\\"return (true)\\")) {",
+  "body": "if ((Boolean) executeJavaScript(\\"return (true)\\")) {",
   "endingLevel": 1,
 }
 `;
 
-exports[`command code emitter should emit \`mouse down at\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).clickAndHold().perform();"`;
+exports[`command code emitter should emit \`mouse down at\` event 1`] = `"actions().moveToElement($(\\"#button\\")).clickAndHold().perform();"`;
 
-exports[`command code emitter should emit \`mouse down\` command 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).clickAndHold().perform();"`;
+exports[`command code emitter should emit \`mouse down\` command 1`] = `"actions().moveToElement($(\\"#button\\")).clickAndHold().perform();"`;
 
-exports[`command code emitter should emit \`mouse move at\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).perform();"`;
+exports[`command code emitter should emit \`mouse move at\` event 1`] = `"actions().moveToElement($(\\"#button\\")).perform();"`;
 
-exports[`command code emitter should emit \`mouse move\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).perform();"`;
+exports[`command code emitter should emit \`mouse move\` event 1`] = `"actions().moveToElement($(\\"#button\\")).perform();"`;
 
-exports[`command code emitter should emit \`mouse out\` event 1`] = `"Selenide.actions().moveToElement($(Selectors.byTagName(\\"body\\")), 0, 0).perform();"`;
+exports[`command code emitter should emit \`mouse out\` event 1`] = `"actions().moveToElement($(Selectors.byTagName(\\"body\\")), 0, 0).perform();"`;
 
-exports[`command code emitter should emit \`mouse over\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).perform();"`;
+exports[`command code emitter should emit \`mouse over\` event 1`] = `"actions().moveToElement($(\\"#button\\")).perform();"`;
 
-exports[`command code emitter should emit \`mouse up at\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).release().perform();"`;
+exports[`command code emitter should emit \`mouse up at\` event 1`] = `"actions().moveToElement($(\\"#button\\")).release().perform();"`;
 
-exports[`command code emitter should emit \`mouse up\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).release().perform();"`;
+exports[`command code emitter should emit \`mouse up\` event 1`] = `"actions().moveToElement($(\\"#button\\")).release().perform();"`;
 
-exports[`command code emitter should emit \`open\` with absolute url 1`] = `"Selenide.open(\\"https://www.seleniumhq.org/\\");"`;
+exports[`command code emitter should emit \`open\` with absolute url 1`] = `"open(\\"https://www.seleniumhq.org/\\");"`;
 
-exports[`command code emitter should emit \`pause\` command 1`] = `"Selenide.sleep(300);"`;
+exports[`command code emitter should emit \`pause\` command 1`] = `"sleep(300);"`;
 
 exports[`command code emitter should emit \`remove selection\` command 1`] = `"$(\\"select\\").selectOption(\\"A label\\");"`;
 
-exports[`command code emitter should emit \`repeatIf\` command 1`] = `"} while ((Boolean) Selenide.executeJavaScript(\\"return (true)\\"));"`;
+exports[`command code emitter should emit \`repeatIf\` command 1`] = `"} while ((Boolean) executeJavaScript(\\"return (true)\\"));"`;
 
-exports[`command code emitter should emit \`run script\` command 1`] = `"Selenide.executeJavaScript(\\"alert('test');alert('Im annoying');\\");"`;
+exports[`command code emitter should emit \`run script\` command 1`] = `"executeJavaScript(\\"alert('test');alert('Im annoying');\\");"`;
 
 exports[`command code emitter should emit \`run\` command 1`] = `"sometestcase();"`;
 
-exports[`command code emitter should emit \`select frame\` to select the top frame 1`] = `"Selenide.switchTo().defaultContent();"`;
+exports[`command code emitter should emit \`select frame\` to select the top frame 1`] = `"switchTo().defaultContent();"`;
 
-exports[`command code emitter should emit \`select window\` to select a window by handle 1`] = `"Selenide.switchTo().window(vars.get(\\"window\\").toString());"`;
+exports[`command code emitter should emit \`select window\` to select a window by handle 1`] = `"switchTo().window(vars.get(\\"window\\").toString());"`;
 
-exports[`command code emitter should emit \`select window\` to select a window by implicit index 1`] = `"Selenide.switchTo().window(12);"`;
+exports[`command code emitter should emit \`select window\` to select a window by implicit index 1`] = `"switchTo().window(12);"`;
 
-exports[`command code emitter should emit \`select window\` to select a window by name 1`] = `"Selenide.switchTo().window(\\"window\\");"`;
+exports[`command code emitter should emit \`select window\` to select a window by name 1`] = `"switchTo().window(\\"window\\");"`;
 
-exports[`command code emitter should emit \`select window\` to select a window by the local keyword 1`] = `"Selenide.switchTo().window(0);"`;
+exports[`command code emitter should emit \`select window\` to select a window by the local keyword 1`] = `"switchTo().window(0);"`;
 
 exports[`command code emitter should emit \`select\` command 1`] = `"$(\\"select\\").selectOption(\\"A label\\");"`;
 
@@ -178,7 +178,7 @@ exports[`command code emitter should emit \`store attribute\` command 1`] = `
 
 exports[`command code emitter should emit \`store text\` command 1`] = `"vars.put(\\"myVar\\", $(\\"#someElement\\").text());"`;
 
-exports[`command code emitter should emit \`store title\` command 1`] = `"vars.put(\\"myVar\\", Selenide.title());"`;
+exports[`command code emitter should emit \`store title\` command 1`] = `"vars.put(\\"myVar\\", title());"`;
 
 exports[`command code emitter should emit \`store value\` command 1`] = `"vars.put(\\"myVar\\", $(\\"#someElement\\").getAttribute(\\"value\\"));"`;
 
@@ -222,7 +222,7 @@ exports[`command code emitter should emit \`verify selected value\` command 1`] 
 
 exports[`command code emitter should emit \`verify text\` command 1`] = `"$(\\"#test\\").shouldHave(text(\\"some text that should be here\\"));"`;
 
-exports[`command code emitter should emit \`verify title\` command 1`] = `"assertEquals(Selenide.title(), \\"example title\\");"`;
+exports[`command code emitter should emit \`verify title\` command 1`] = `"assertEquals(title(), \\"example title\\");"`;
 
 exports[`command code emitter should emit \`verify value\` command 1`] = `"$(\\"#select\\").shouldHave(value(\\"test\\"));"`;
 
@@ -249,7 +249,7 @@ exports[`command code emitter should emit \`waitForText\` command 1`] = `"$(\\"#
 
 exports[`command code emitter should emit \`while\` command 1`] = `
 Object {
-  "body": "while ((Boolean) Selenide.executeJavaScript(\\"return (true)\\")) {",
+  "body": "while ((Boolean) executeJavaScript(\\"return (true)\\")) {",
   "endingLevel": 1,
 }
 `;

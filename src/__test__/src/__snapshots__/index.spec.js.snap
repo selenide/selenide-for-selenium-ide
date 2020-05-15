@@ -9,7 +9,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -29,7 +28,7 @@ public class LoginTest {
   }
   @Test
   public void validcredentials() {
-    Selenide.open(\\"http://the-internet.herokuapp.com/login\\");
+    open(\\"http://the-internet.herokuapp.com/login\\");
     WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1440, 1177));
     $(\\"#username\\").val(\\"tomsmith\\");
     $(\\"#password\\").val(\\"SuperSecretPassword!\\");
@@ -38,7 +37,7 @@ public class LoginTest {
   }
   @Test
   public void invalidcredentials() {
-    Selenide.open(\\"http://the-internet.herokuapp.com/login\\");
+    open(\\"http://the-internet.herokuapp.com/login\\");
     WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1440, 1177));
     $(\\"#username\\").val(\\"blah\\");
     $(\\"#password\\").val(\\"blah\\");
@@ -58,7 +57,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -78,62 +76,62 @@ public class ControlflowTest {
   }
   @Test
   public void controlflowif() {
-    vars.put(\\"myVar\\", Selenide.executeJavaScript(\\"return 'a'\\"));
-    if ((Boolean) Selenide.executeJavaScript(\\"return (arguments[0] === 'a')\\", vars.get(\\"myVar\\"))) {
-      vars.put(\\"output\\", Selenide.executeJavaScript(\\"return 'a'\\"));
-    } else if ((Boolean) Selenide.executeJavaScript(\\"return (arguments[0] === 'b')\\", vars.get(\\"myVar\\"))) {
-      vars.put(\\"output\\", Selenide.executeJavaScript(\\"return 'b'\\"));
+    vars.put(\\"myVar\\", executeJavaScript(\\"return 'a'\\"));
+    if ((Boolean) executeJavaScript(\\"return (arguments[0] === 'a')\\", vars.get(\\"myVar\\"))) {
+      vars.put(\\"output\\", executeJavaScript(\\"return 'a'\\"));
+    } else if ((Boolean) executeJavaScript(\\"return (arguments[0] === 'b')\\", vars.get(\\"myVar\\"))) {
+      vars.put(\\"output\\", executeJavaScript(\\"return 'b'\\"));
     } else {
-      vars.put(\\"output\\", Selenide.executeJavaScript(\\"return 'c'\\"));
+      vars.put(\\"output\\", executeJavaScript(\\"return 'c'\\"));
     }
     assertEquals(vars.get(\\"output\\").toString(), \\"a\\");
   }
   @Test
   public void controlflowelseif() {
-    vars.put(\\"myVar\\", Selenide.executeJavaScript(\\"return 'b'\\"));
-    if ((Boolean) Selenide.executeJavaScript(\\"return (arguments[0] === 'a')\\", vars.get(\\"myVar\\"))) {
-      vars.put(\\"output\\", Selenide.executeJavaScript(\\"return 'a'\\"));
-    } else if ((Boolean) Selenide.executeJavaScript(\\"return (arguments[0] === 'b')\\", vars.get(\\"myVar\\"))) {
-      vars.put(\\"output\\", Selenide.executeJavaScript(\\"return 'b'\\"));
+    vars.put(\\"myVar\\", executeJavaScript(\\"return 'b'\\"));
+    if ((Boolean) executeJavaScript(\\"return (arguments[0] === 'a')\\", vars.get(\\"myVar\\"))) {
+      vars.put(\\"output\\", executeJavaScript(\\"return 'a'\\"));
+    } else if ((Boolean) executeJavaScript(\\"return (arguments[0] === 'b')\\", vars.get(\\"myVar\\"))) {
+      vars.put(\\"output\\", executeJavaScript(\\"return 'b'\\"));
     } else {
-      vars.put(\\"output\\", Selenide.executeJavaScript(\\"return 'c'\\"));
+      vars.put(\\"output\\", executeJavaScript(\\"return 'c'\\"));
     }
     assertEquals(vars.get(\\"output\\").toString(), \\"b\\");
   }
   @Test
   public void controlflowelse() {
-    vars.put(\\"myVar\\", Selenide.executeJavaScript(\\"return 'c'\\"));
-    if ((Boolean) Selenide.executeJavaScript(\\"return (arguments[0] === 'a')\\", vars.get(\\"myVar\\"))) {
-      vars.put(\\"output\\", Selenide.executeJavaScript(\\"return 'a'\\"));
-    } else if ((Boolean) Selenide.executeJavaScript(\\"return (arguments[0] === 'b')\\", vars.get(\\"myVar\\"))) {
-      vars.put(\\"output\\", Selenide.executeJavaScript(\\"return 'b'\\"));
+    vars.put(\\"myVar\\", executeJavaScript(\\"return 'c'\\"));
+    if ((Boolean) executeJavaScript(\\"return (arguments[0] === 'a')\\", vars.get(\\"myVar\\"))) {
+      vars.put(\\"output\\", executeJavaScript(\\"return 'a'\\"));
+    } else if ((Boolean) executeJavaScript(\\"return (arguments[0] === 'b')\\", vars.get(\\"myVar\\"))) {
+      vars.put(\\"output\\", executeJavaScript(\\"return 'b'\\"));
     } else {
-      vars.put(\\"output\\", Selenide.executeJavaScript(\\"return 'c'\\"));
+      vars.put(\\"output\\", executeJavaScript(\\"return 'c'\\"));
     }
     assertEquals(vars.get(\\"output\\").toString(), \\"c\\");
   }
   @Test
   public void controlflowdo() {
-    vars.put(\\"check\\", Selenide.executeJavaScript(\\"return 1\\"));
+    vars.put(\\"check\\", executeJavaScript(\\"return 1\\"));
     do {
-      vars.put(\\"check\\", Selenide.executeJavaScript(\\"return arguments[0] + 1\\", vars.get(\\"check\\")));
-    } while ((Boolean) Selenide.executeJavaScript(\\"return (arguments[0] < 3)\\", vars.get(\\"check\\")));
+      vars.put(\\"check\\", executeJavaScript(\\"return arguments[0] + 1\\", vars.get(\\"check\\")));
+    } while ((Boolean) executeJavaScript(\\"return (arguments[0] < 3)\\", vars.get(\\"check\\")));
     assertEquals(vars.get(\\"check\\").toString(), \\"3\\");
   }
   @Test
   public void controlflowtimes() {
-    vars.put(\\"check\\", Selenide.executeJavaScript(\\"return 1\\"));
+    vars.put(\\"check\\", executeJavaScript(\\"return 1\\"));
     Integer times = 2;
     for(int i = 0; i < times; i++) {
-      vars.put(\\"check\\", Selenide.executeJavaScript(\\"return arguments[0] + 1\\", vars.get(\\"check\\")));
+      vars.put(\\"check\\", executeJavaScript(\\"return arguments[0] + 1\\", vars.get(\\"check\\")));
     }
     assertEquals(vars.get(\\"check\\").toString(), \\"3\\");
   }
   @Test
   public void controlflowwhile() {
-    vars.put(\\"check\\", Selenide.executeJavaScript(\\"return 1\\"));
-    while ((Boolean) Selenide.executeJavaScript(\\"return (arguments[0] < 3)\\", vars.get(\\"check\\"))) {
-      vars.put(\\"check\\", Selenide.executeJavaScript(\\"return arguments[0] + 1\\", vars.get(\\"check\\")));
+    vars.put(\\"check\\", executeJavaScript(\\"return 1\\"));
+    while ((Boolean) executeJavaScript(\\"return (arguments[0] < 3)\\", vars.get(\\"check\\"))) {
+      vars.put(\\"check\\", executeJavaScript(\\"return arguments[0] + 1\\", vars.get(\\"check\\")));
     }
     assertEquals(vars.get(\\"check\\").toString(), \\"3\\");
   }
@@ -150,7 +148,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -169,7 +166,7 @@ public class LoginTest {
   public void tearDown() {
   }
   public void login() {
-    Selenide.open(\\"https://the-internet.herokuapp.com/\\");
+    open(\\"https://the-internet.herokuapp.com/\\");
     $(Selectors.byLinkText(\\"Form Authentication\\")).click();
     $(\\"#username\\").val(vars.get(\\"username\\").toString());
     $(\\"#password\\").val(vars.get(\\"password\\").toString());
@@ -200,7 +197,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -219,7 +215,7 @@ public class DefaultSuiteTest {
   public void tearDown() {
   }
   public String waitForWindow(int timeout) {
-    Selenide.sleep(timeout);
+    sleep(timeout);
     Set<String> whNow = WebDriverRunner.getWebDriver().getWindowHandles();
     Set<String> whThen = (Set<String>) vars.get(\\"window_handles\\");
     if (whNow.size() > whThen.size()) {
@@ -228,12 +224,12 @@ public class DefaultSuiteTest {
     return whNow.iterator().next();
   }
   public void selectwindow() {
-    Selenide.open(\\"http://the-internet.herokuapp.com/windows\\");
+    open(\\"http://the-internet.herokuapp.com/windows\\");
     vars.put(\\"window_handles\\", WebDriverRunner.getWebDriver().getWindowHandles());
     $(Selectors.byLinkText(\\"Click Here\\")).click();
     vars.put(\\"win9425\\", waitForWindow(2000));
-    Selenide.switchTo().window(vars.get(\\"win9425\\").toString());
-    assertEquals(Selenide.title(), \\"New Window\\");
+    switchTo().window(vars.get(\\"win9425\\").toString());
+    assertEquals(title(), \\"New Window\\");
   }
   @Test
   public void reuse() {
@@ -252,7 +248,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -271,7 +266,7 @@ public class DefaultSuiteTest {
   public void tearDown() {
   }
   public String waitForWindow(int timeout) {
-    Selenide.sleep(timeout);
+    sleep(timeout);
     Set<String> whNow = WebDriverRunner.getWebDriver().getWindowHandles();
     Set<String> whThen = (Set<String>) vars.get(\\"window_handles\\");
     if (whNow.size() > whThen.size()) {
@@ -280,12 +275,12 @@ public class DefaultSuiteTest {
     return whNow.iterator().next();
   }
   public void selectwindow() {
-    Selenide.open(\\"http://the-internet.herokuapp.com/windows\\");
+    open(\\"http://the-internet.herokuapp.com/windows\\");
     vars.put(\\"window_handles\\", WebDriverRunner.getWebDriver().getWindowHandles());
     $(Selectors.byLinkText(\\"Click Here\\")).click();
     vars.put(\\"win9425\\", waitForWindow(2000));
-    Selenide.switchTo().window(vars.get(\\"win9425\\").toString());
-    assertEquals(Selenide.title(), \\"New Window\\");
+    switchTo().window(vars.get(\\"win9425\\").toString());
+    assertEquals(title(), \\"New Window\\");
   }
   @Test
   public void reuse() {
@@ -293,12 +288,12 @@ public class DefaultSuiteTest {
   }
   @Test
   public void selectwindow() {
-    Selenide.open(\\"http://the-internet.herokuapp.com/windows\\");
+    open(\\"http://the-internet.herokuapp.com/windows\\");
     vars.put(\\"window_handles\\", WebDriverRunner.getWebDriver().getWindowHandles());
     $(Selectors.byLinkText(\\"Click Here\\")).click();
     vars.put(\\"win9425\\", waitForWindow(2000));
-    Selenide.switchTo().window(vars.get(\\"win9425\\").toString());
-    assertEquals(Selenide.title(), \\"New Window\\");
+    switchTo().window(vars.get(\\"win9425\\").toString());
+    assertEquals(title(), \\"New Window\\");
   }
 }
 "
@@ -313,7 +308,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -333,7 +327,7 @@ public class LoginTest {
   }
   @Test
   public void login() {
-    Selenide.open(\\"http://the-internet.herokuapp.com/login\\");
+    open(\\"http://the-internet.herokuapp.com/login\\");
     WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1440, 1177));
     $(\\"#username\\").val(\\"tomsmith\\");
     $(\\"#password\\").val(\\"SuperSecretPassword!\\");
@@ -353,7 +347,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -374,7 +367,7 @@ public class LoginTest {
   }
   @Test
   public void login() {
-    Selenide.open(\\"http://the-internet.herokuapp.com/login\\");
+    open(\\"http://the-internet.herokuapp.com/login\\");
     WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1440, 1177));
     $(\\"#username\\").val(\\"tomsmith\\");
     $(\\"#password\\").val(\\"SuperSecretPassword!\\");
@@ -394,7 +387,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -413,7 +405,7 @@ public class ValidcredentialsTest {
   public void tearDown() {
   }
   public void login() {
-    Selenide.open(\\"https://the-internet.herokuapp.com/\\");
+    open(\\"https://the-internet.herokuapp.com/\\");
     $(Selectors.byLinkText(\\"Form Authentication\\")).click();
     $(\\"#username\\").val(vars.get(\\"username\\").toString());
     $(\\"#password\\").val(vars.get(\\"password\\").toString());
@@ -438,7 +430,6 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -457,7 +448,7 @@ public class SelectwindowTest {
   public void tearDown() {
   }
   public String waitForWindow(int timeout) {
-    Selenide.sleep(timeout);
+    sleep(timeout);
     Set<String> whNow = WebDriverRunner.getWebDriver().getWindowHandles();
     Set<String> whThen = (Set<String>) vars.get(\\"window_handles\\");
     if (whNow.size() > whThen.size()) {
@@ -467,17 +458,17 @@ public class SelectwindowTest {
   }
   @Test
   public void selectwindow() {
-    Selenide.open(\\"http://the-internet.herokuapp.com/\\");
+    open(\\"http://the-internet.herokuapp.com/\\");
     WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1260, 1027));
     $(Selectors.byLinkText(\\"Multiple Windows\\")).click();
     vars.put(\\"window_handles\\", WebDriverRunner.getWebDriver().getWindowHandles());
     $(Selectors.byLinkText(\\"Click Here\\")).click();
     vars.put(\\"win9625\\", waitForWindow(2000));
     vars.put(\\"root\\", WebDriverRunner.getWebDriver().getWindowHandle());
-    Selenide.switchTo().window(vars.get(\\"win9625\\").toString());
-    assertEquals(Selenide.title(), \\"New Window\\");
-    Selenide.switchTo().window(vars.get(\\"root\\").toString());
-    assertEquals(Selenide.title(), \\"The Internet\\");
+    switchTo().window(vars.get(\\"win9625\\").toString());
+    assertEquals(title(), \\"New Window\\");
+    switchTo().window(vars.get(\\"root\\").toString());
+    assertEquals(title(), \\"The Internet\\");
   }
 }
 "

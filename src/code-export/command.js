@@ -133,7 +133,7 @@ function emitWaitForWindow() {
     return `public String ${name}(int timeout) {`;
   };
   const commands = [
-    {level: 0, statement: 'Selenide.sleep(timeout);'},
+    {level: 0, statement: 'sleep(timeout);'},
     {level: 0, statement: 'Set<String> whNow = WebDriverRunner.getWebDriver().getWindowHandles();'},
     {
       level: 0,
@@ -168,13 +168,13 @@ function emitAssert(varName, value) {
 
 function emitAssertAlert(alertText) {
   return Promise.resolve(
-    `assertEquals(Selenide.switchTo().alert().getText(), "${alertText}");`
+    `assertEquals(switchTo().alert().getText(), "${alertText}");`
   );
 }
 
 function emitAnswerOnNextPrompt(textToSend) {
   return Promise.resolve(
-    `Selenide.prompt("${textToSend}");`
+    `prompt("${textToSend}");`
   );
 }
 
@@ -185,11 +185,11 @@ async function emitCheck(locator) {
 }
 
 function emitChooseCancelOnNextConfirmation() {
-  return Promise.resolve(`Selenide.dismiss();`);
+  return Promise.resolve(`dismiss();`);
 }
 
 function emitChooseOkOnNextConfirmation() {
-  return Promise.resolve(`Selenide.confirm();`);
+  return Promise.resolve(`confirm();`);
 }
 
 async function emitClick(target) {
@@ -204,7 +204,7 @@ async function emitClose() {
 
 function generateExpressionScript(script) {
   const scriptString = script.script.replace(/"/g, "'");
-  return `(Boolean) Selenide.executeJavaScript("return (${scriptString})"${generateScriptArguments(
+  return `(Boolean) executeJavaScript("return (${scriptString})"${generateScriptArguments(
     script
   )})`;
 }
@@ -326,7 +326,7 @@ async function emitEditContent(locator, content) {
     },
     {
       level: 1,
-      statement: `Selenide.executeJavaScript("if(arguments[0].contentEditable === 'true') {arguments[0].innerText = '${content}'}", element);`
+      statement: `executeJavaScript("if(arguments[0].contentEditable === 'true') {arguments[0].innerText = '${content}'}", element);`
     },
     {level: 0, statement: '}'}
   ];
@@ -334,14 +334,14 @@ async function emitEditContent(locator, content) {
 }
 
 async function emitExecuteScript(script, varName) {
-  const result = `Selenide.executeJavaScript("${script.script}"${generateScriptArguments(
+  const result = `executeJavaScript("${script.script}"${generateScriptArguments(
     script
   )})`;
   return Promise.resolve(variableSetter(varName, result));
 }
 
 async function emitExecuteAsyncScript(script, varName) {
-  const result = `Selenide.executeAsyncJavaScript("var callback = arguments[arguments.length - 1];${
+  const result = `executeAsyncJavaScript("var callback = arguments[arguments.length - 1];${
     script.script
   }.then(callback).catch(callback);${generateScriptArguments(script)}")`;
   return Promise.resolve(variableSetter(varName, result));
@@ -355,25 +355,25 @@ function generateScriptArguments(script) {
 
 async function emitMouseDown(locator) {
   return Promise.resolve(
-    `Selenide.actions().moveToElement($(${await location.emit(locator)})).clickAndHold().perform();`
+    `actions().moveToElement($(${await location.emit(locator)})).clickAndHold().perform();`
   );
 }
 
 async function emitMouseMove(locator) {
   return Promise.resolve(
-    `Selenide.actions().moveToElement($(${await location.emit(locator)})).perform();`
+    `actions().moveToElement($(${await location.emit(locator)})).perform();`
   );
 }
 
 async function emitMouseOut() {
   return Promise.resolve(
-    `Selenide.actions().moveToElement($(Selectors.byTagName("body")), 0, 0).perform();`
+    `actions().moveToElement($(Selectors.byTagName("body")), 0, 0).perform();`
   );
 }
 
 async function emitMouseUp(locator) {
   return Promise.resolve(
-    `Selenide.actions().moveToElement($(${await location.emit(locator)})).release().perform();`
+    `actions().moveToElement($(${await location.emit(locator)})).release().perform();`
   );
 }
 
@@ -381,11 +381,11 @@ function emitOpen(target) {
   const url = /^(file|http|https):\/\//.test(target)
     ? `"${target}"`
     : `"${global.baseUrl}${target}"`;
-  return Promise.resolve(`Selenide.open(${url});`);
+  return Promise.resolve(`open(${url});`);
 }
 
 async function emitPause(time) {
-  return Promise.resolve(`Selenide.sleep(${time});`);
+  return Promise.resolve(`sleep(${time});`);
 }
 
 async function emitRun(testName) {
@@ -394,7 +394,7 @@ async function emitRun(testName) {
 
 async function emitRunScript(script) {
   return Promise.resolve(
-    `Selenide.executeJavaScript("${script.script}${generateScriptArguments(script)}");`
+    `executeJavaScript("${script.script}${generateScriptArguments(script)}");`
   );
 }
 
@@ -413,16 +413,16 @@ async function emitSelect(selectElement, option) {
 
 async function emitSelectFrame(frameLocation) {
   if (frameLocation === 'relative=top' || frameLocation === 'relative=parent') {
-    return Promise.resolve('Selenide.switchTo().defaultContent();');
+    return Promise.resolve('switchTo().defaultContent();');
   } else if (/^index=/.test(frameLocation)) {
     return Promise.resolve(
-      `Selenide.switchTo().frame(${Math.floor(
+      `switchTo().frame(${Math.floor(
         frameLocation.split('index=')[1]
       )});`
     );
   } else {
     return Promise.resolve(
-      `Selenide.switchTo().frame($(${await location.emit(frameLocation)}));`
+      `switchTo().frame($(${await location.emit(frameLocation)}));`
     );
   }
 }
@@ -430,18 +430,18 @@ async function emitSelectFrame(frameLocation) {
 async function emitSelectWindow(windowLocation) {
   if (/^handle=/.test(windowLocation)) {
     return Promise.resolve(
-      `Selenide.switchTo().window(${windowLocation.split('handle=')[1]});`
+      `switchTo().window(${windowLocation.split('handle=')[1]});`
     );
   } else if (/^name=/.test(windowLocation)) {
     return Promise.resolve(
-      `Selenide.switchTo().window("${windowLocation.split('name=')[1]}");`
+      `switchTo().window("${windowLocation.split('name=')[1]}");`
     );
   } else if (/^win_ser_/.test(windowLocation)) {
     if (windowLocation === 'win_ser_local') {
       return Promise.resolve({
         commands: [{
           level: 0,
-          statement: 'Selenide.switchTo().window(0);'
+          statement: 'switchTo().window(0);'
         }]
       });
     } else {
@@ -449,7 +449,7 @@ async function emitSelectWindow(windowLocation) {
       return Promise.resolve({
         commands: [{
           level: 0,
-          statement: `Selenide.switchTo().window(${index});`
+          statement: `switchTo().window(${index});`
         }]
       });
     }
@@ -521,7 +521,7 @@ async function emitStoreText(locator, varName) {
 }
 
 async function emitStoreTitle(_, varName) {
-  return Promise.resolve(variableSetter(varName, 'Selenide.title()'));
+  return Promise.resolve(variableSetter(varName, 'title()'));
 }
 
 async function emitStoreValue(locator, varName) {
@@ -627,7 +627,7 @@ async function emitVerifyValue(locator, value) {
 }
 
 async function emitVerifyTitle(title) {
-  return Promise.resolve(`assertEquals(Selenide.title(), "${title}");`);
+  return Promise.resolve(`assertEquals(title(), "${title}");`);
 }
 
 async function emitWaitForElementEditable(locator, timeout) {
