@@ -7,3 +7,4 @@ yarn-error.log
 dist
 .web-extension-id
 *.log
+selenide-selenium-ide.zip
