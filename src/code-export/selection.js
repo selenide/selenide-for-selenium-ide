@@ -16,7 +16,7 @@ export default {
 };
 
 function emitId(id) {
-  return Promise.resolve(`$(By.cssSelector("#${id}")).click();`);
+  return Promise.resolve(`$("#${id}").click();`);
 }
 
 function emitValue(value) {

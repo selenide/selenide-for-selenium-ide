@@ -22,7 +22,7 @@ describe('selection location code emitter', () => {
     const type = 'id';
     const selector = 'someId';
     return expect(emit(`${type}=${selector}`)).resolves.toBe(
-      `$(By.cssSelector("#${selector}")).click();`
+      `$("#${selector}").click();`
     );
   });
   it('should emit value locator', () => {
