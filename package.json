@@ -14,7 +14,7 @@
     "release-prep": "yarn && yarn test && yarn build && yarn lint",
     "release:firefox": "cd build && web-ext-submit",
     "release:chrome": "cd build && webstore upload --auto-publish",
-    "postpublish": "yarn build:prod && npx scripts/gh-release.js"
+    "postpublish": "yarn build:prod && npx ./scripts/gh-release.js"
   },
   "jest": {
     "testMatch": [
