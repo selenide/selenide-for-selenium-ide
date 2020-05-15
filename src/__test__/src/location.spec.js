@@ -15,7 +15,7 @@ describe('location code emitter', () => {
     const type = 'id';
     const selector = 'someId';
     return expect(emit(`${type}=${selector}`)).resolves.toBe(
-      `Selectors.byId("${selector}")`
+      `"#${selector}"`
     );
   });
   it('should emit link locator', () => {

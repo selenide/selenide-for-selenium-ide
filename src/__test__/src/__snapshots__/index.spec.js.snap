@@ -31,8 +31,8 @@ public class LoginTest {
   public void validcredentials() {
     Selenide.open(\\"http://the-internet.herokuapp.com/login\\");
     WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1440, 1177));
-    $(Selectors.byId(\\"username\\")).val(\\"tomsmith\\");
-    $(Selectors.byId(\\"password\\")).val(\\"SuperSecretPassword!\\");
+    $(\\"#username\\").val(\\"tomsmith\\");
+    $(\\"#password\\").val(\\"SuperSecretPassword!\\");
     $(\\"#login button\\").click();
     $(\\".flash.success\\").shouldHave(text(\\"You logged into a secure area!\\\\\\\\\\\\\\\\n×\\"));
   }
@@ -40,10 +40,10 @@ public class LoginTest {
   public void invalidcredentials() {
     Selenide.open(\\"http://the-internet.herokuapp.com/login\\");
     WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1440, 1177));
-    $(Selectors.byId(\\"username\\")).val(\\"blah\\");
-    $(Selectors.byId(\\"password\\")).val(\\"blah\\");
+    $(\\"#username\\").val(\\"blah\\");
+    $(\\"#password\\").val(\\"blah\\");
     $(\\"#login button\\").click();
-    $(Selectors.byId(\\"flash\\")).shouldHave(text(\\"Your username is invalid!\\\\\\\\\\\\\\\\n×\\"));
+    $(\\"#flash\\").shouldHave(text(\\"Your username is invalid!\\\\\\\\\\\\\\\\n×\\"));
   }
 }
 "
@@ -171,8 +171,8 @@ public class LoginTest {
   public void login() {
     Selenide.open(\\"https://the-internet.herokuapp.com/\\");
     $(Selectors.byLinkText(\\"Form Authentication\\")).click();
-    $(Selectors.byId(\\"username\\")).val(vars.get(\\"username\\").toString());
-    $(Selectors.byId(\\"password\\")).val(vars.get(\\"password\\").toString());
+    $(\\"#username\\").val(vars.get(\\"username\\").toString());
+    $(\\"#password\\").val(vars.get(\\"password\\").toString());
     $(\\".fa\\").click();
   }
   @Test
@@ -335,8 +335,8 @@ public class LoginTest {
   public void login() {
     Selenide.open(\\"http://the-internet.herokuapp.com/login\\");
     WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1440, 1177));
-    $(Selectors.byId(\\"username\\")).val(\\"tomsmith\\");
-    $(Selectors.byId(\\"password\\")).val(\\"SuperSecretPassword!\\");
+    $(\\"#username\\").val(\\"tomsmith\\");
+    $(\\"#password\\").val(\\"SuperSecretPassword!\\");
     $(\\"#login button\\").click();
     $(\\".flash.success\\").shouldHave(text(\\"You logged into a secure area!\\\\\\\\\\\\\\\\n×\\"));
   }
@@ -376,8 +376,8 @@ public class LoginTest {
   public void login() {
     Selenide.open(\\"http://the-internet.herokuapp.com/login\\");
     WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1440, 1177));
-    $(Selectors.byId(\\"username\\")).val(\\"tomsmith\\");
-    $(Selectors.byId(\\"password\\")).val(\\"SuperSecretPassword!\\");
+    $(\\"#username\\").val(\\"tomsmith\\");
+    $(\\"#password\\").val(\\"SuperSecretPassword!\\");
     $(\\"#login button\\").click();
     $(\\".flash.success\\").shouldHave(text(\\"You logged into a secure area!\\\\\\\\\\\\\\\\n×\\"));
   }
@@ -415,8 +415,8 @@ public class ValidcredentialsTest {
   public void login() {
     Selenide.open(\\"https://the-internet.herokuapp.com/\\");
     $(Selectors.byLinkText(\\"Form Authentication\\")).click();
-    $(Selectors.byId(\\"username\\")).val(vars.get(\\"username\\").toString());
-    $(Selectors.byId(\\"password\\")).val(vars.get(\\"password\\").toString());
+    $(\\"#username\\").val(vars.get(\\"username\\").toString());
+    $(\\"#password\\").val(vars.get(\\"password\\").toString());
     $(\\".fa\\").click();
   }
   @Test

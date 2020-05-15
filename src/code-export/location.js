@@ -28,7 +28,7 @@ let _default = {
 exports.default = _default;
 
 function emitId(selector) {
-  return Promise.resolve(`Selectors.byId("${selector}")`);
+  return Promise.resolve(`"#${selector}"`);
 }
 
 function emitName(selector) {

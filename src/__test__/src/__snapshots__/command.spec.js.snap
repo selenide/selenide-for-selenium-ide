@@ -1,8 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`command code emitter should emit 'assert selected label' command 1`] = `"$(Selectors.byId(\\"test\\")).getSelectedOption().shouldHave(text(\\"test\\"));"`;
+exports[`command code emitter should emit 'assert selected label' command 1`] = `"$(\\"#test\\").getSelectedOption().shouldHave(text(\\"test\\"));"`;
 
-exports[`command code emitter should emit 'verify selected label' command 1`] = `"$(Selectors.byId(\\"test\\")).getSelectedOption().shouldHave(text(\\"test\\"));"`;
+exports[`command code emitter should emit 'verify selected label' command 1`] = `"$(\\"#test\\").getSelectedOption().shouldHave(text(\\"test\\"));"`;
 
 exports[`command code emitter should emit \`add selection\` command 1`] = `"$(\\"select\\").selectOption(\\"A label\\");"`;
 
@@ -10,37 +10,37 @@ exports[`command code emitter should emit \`answer on visible prompt\` command 1
 
 exports[`command code emitter should emit \`assert alert\` command 1`] = `"assertEquals(Selenide.switchTo().alert().getText(), \\"an alert\\");"`;
 
-exports[`command code emitter should emit \`assert checked\` command 1`] = `"$(Selectors.byId(\\"check\\")).shouldBe(selected);"`;
+exports[`command code emitter should emit \`assert checked\` command 1`] = `"$(\\"#check\\").shouldBe(selected);"`;
 
 exports[`command code emitter should emit \`assert confirmation\` command 1`] = `"assertEquals(Selenide.switchTo().alert().getText(), \\"a confirmation\\");"`;
 
-exports[`command code emitter should emit \`assert editable\` command 1`] = `"$(Selectors.byId(\\"text\\")).shouldBe(enabled, not(readonly));"`;
+exports[`command code emitter should emit \`assert editable\` command 1`] = `"$(\\"#text\\").shouldBe(enabled, not(readonly));"`;
 
-exports[`command code emitter should emit \`assert element not present\` command 1`] = `"$(Selectors.byId(\\"element\\")).shouldNot(exist);"`;
+exports[`command code emitter should emit \`assert element not present\` command 1`] = `"$(\\"#element\\").shouldNot(exist);"`;
 
-exports[`command code emitter should emit \`assert element present\` command 1`] = `"$(Selectors.byId(\\"element\\")).should(exist);"`;
+exports[`command code emitter should emit \`assert element present\` command 1`] = `"$(\\"#element\\").should(exist);"`;
 
-exports[`command code emitter should emit \`assert not checked\` command 1`] = `"$(Selectors.byId(\\"check\\")).shouldNotBe(checked);"`;
+exports[`command code emitter should emit \`assert not checked\` command 1`] = `"$(\\"#check\\").shouldNotBe(checked);"`;
 
-exports[`command code emitter should emit \`assert not editable\` command 1`] = `"$(Selectors.byId(\\"text\\")).shouldNotBe(enabled);"`;
+exports[`command code emitter should emit \`assert not editable\` command 1`] = `"$(\\"#text\\").shouldNotBe(enabled);"`;
 
-exports[`command code emitter should emit \`assert not selected value\` command 1`] = `"$(Selectors.byId(\\"select\\")).shouldNotHave(value(\\"test\\"));"`;
+exports[`command code emitter should emit \`assert not selected value\` command 1`] = `"$(\\"#select\\").shouldNotHave(value(\\"test\\"));"`;
 
-exports[`command code emitter should emit \`assert not text\` command 1`] = `"$(Selectors.byId(\\"test\\")).shouldNotHave(text(\\"text\\"));"`;
+exports[`command code emitter should emit \`assert not text\` command 1`] = `"$(\\"#test\\").shouldNotHave(text(\\"text\\"));"`;
 
 exports[`command code emitter should emit \`assert prompt\` command 1`] = `"assertEquals(Selenide.switchTo().alert().getText(), \\"a prompt\\");"`;
 
-exports[`command code emitter should emit \`assert selected value\` command 1`] = `"$(Selectors.byId(\\"select\\")).shouldHave(value(\\"test\\"));"`;
+exports[`command code emitter should emit \`assert selected value\` command 1`] = `"$(\\"#select\\").shouldHave(value(\\"test\\"));"`;
 
-exports[`command code emitter should emit \`assert text\` command 1`] = `"$(Selectors.byId(\\"test\\")).shouldHave(text(\\"some text that should be here\\"));"`;
+exports[`command code emitter should emit \`assert text\` command 1`] = `"$(\\"#test\\").shouldHave(text(\\"some text that should be here\\"));"`;
 
 exports[`command code emitter should emit \`assert title\` command 1`] = `"assertEquals(Selenide.title(), \\"example title\\");"`;
 
-exports[`command code emitter should emit \`assert value\` command 1`] = `"$(Selectors.byId(\\"select\\")).shouldHave(value(\\"test\\"));"`;
+exports[`command code emitter should emit \`assert value\` command 1`] = `"$(\\"#select\\").shouldHave(value(\\"test\\"));"`;
 
 exports[`command code emitter should emit \`assert\` command 1`] = `"assertEquals(vars.get(\\"varrrName\\").toString(), \\"blah\\");"`;
 
-exports[`command code emitter should emit \`check\` command 1`] = `"$(Selectors.byId(\\"f\\")).setSelected(true);"`;
+exports[`command code emitter should emit \`check\` command 1`] = `"$(\\"#f\\").setSelected(true);"`;
 
 exports[`command code emitter should emit \`choose cancel on visible prompt\` command 1`] = `"Selenide.dismiss();"`;
 
@@ -71,7 +71,7 @@ exports[`command code emitter should emit \`echo\` command with variables 1`] = 
 
 exports[`command code emitter should emit \`edit content\` command 1`] = `
 "{
-  SelenideElement element = $(Selectors.byId(\\"contentEditable\\"));
+  SelenideElement element = $(\\"#contentEditable\\");
   Selenide.executeJavaScript(\\"if(arguments[0].contentEditable === 'true') {arguments[0].innerText = '<button>test</button>'}\\", element);
 }"
 `;
@@ -119,21 +119,21 @@ Object {
 }
 `;
 
-exports[`command code emitter should emit \`mouse down at\` event 1`] = `"Selenide.actions().moveToElement($(Selectors.byId(\\"button\\"))).clickAndHold().perform();"`;
+exports[`command code emitter should emit \`mouse down at\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).clickAndHold().perform();"`;
 
-exports[`command code emitter should emit \`mouse down\` command 1`] = `"Selenide.actions().moveToElement($(Selectors.byId(\\"button\\"))).clickAndHold().perform();"`;
+exports[`command code emitter should emit \`mouse down\` command 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).clickAndHold().perform();"`;
 
-exports[`command code emitter should emit \`mouse move at\` event 1`] = `"Selenide.actions().moveToElement($(Selectors.byId(\\"button\\"))).perform();"`;
+exports[`command code emitter should emit \`mouse move at\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).perform();"`;
 
-exports[`command code emitter should emit \`mouse move\` event 1`] = `"Selenide.actions().moveToElement($(Selectors.byId(\\"button\\"))).perform();"`;
+exports[`command code emitter should emit \`mouse move\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).perform();"`;
 
 exports[`command code emitter should emit \`mouse out\` event 1`] = `"Selenide.actions().moveToElement($(Selectors.byTagName(\\"body\\")), 0, 0).perform();"`;
 
-exports[`command code emitter should emit \`mouse over\` event 1`] = `"Selenide.actions().moveToElement($(Selectors.byId(\\"button\\"))).perform();"`;
+exports[`command code emitter should emit \`mouse over\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).perform();"`;
 
-exports[`command code emitter should emit \`mouse up at\` event 1`] = `"Selenide.actions().moveToElement($(Selectors.byId(\\"button\\"))).release().perform();"`;
+exports[`command code emitter should emit \`mouse up at\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).release().perform();"`;
 
-exports[`command code emitter should emit \`mouse up\` event 1`] = `"Selenide.actions().moveToElement($(Selectors.byId(\\"button\\"))).release().perform();"`;
+exports[`command code emitter should emit \`mouse up\` event 1`] = `"Selenide.actions().moveToElement($(\\"#button\\")).release().perform();"`;
 
 exports[`command code emitter should emit \`open\` with absolute url 1`] = `"Selenide.open(\\"https://www.seleniumhq.org/\\");"`;
 
@@ -159,11 +159,11 @@ exports[`command code emitter should emit \`select window\` to select a window b
 
 exports[`command code emitter should emit \`select\` command 1`] = `"$(\\"select\\").selectOption(\\"A label\\");"`;
 
-exports[`command code emitter should emit \`send keys\` command 1`] = `"$(Selectors.byId(\\"input\\")).val(\\"example input\\");"`;
+exports[`command code emitter should emit \`send keys\` command 1`] = `"$(\\"#input\\").val(\\"example input\\");"`;
 
-exports[`command code emitter should emit \`send keys\` command with a key press 1`] = `"$(Selectors.byId(\\"input\\")).val(\\"SuperSecretPassword!\\").sendKeys(Keys.ENTER);"`;
+exports[`command code emitter should emit \`send keys\` command with a key press 1`] = `"$(\\"#input\\").val(\\"SuperSecretPassword!\\").sendKeys(Keys.ENTER);"`;
 
-exports[`command code emitter should emit \`send keys\` command with a variable input 1`] = `"$(Selectors.byId(\\"input\\")).val(vars.get(\\"blah\\").toString());"`;
+exports[`command code emitter should emit \`send keys\` command with a variable input 1`] = `"$(\\"#input\\").val(vars.get(\\"blah\\").toString());"`;
 
 exports[`command code emitter should emit \`set speed\` 1`] = `"System.out.println(\\"\`set speed\` is a no-op in code export, use \`pause\` instead\\");"`;
 
@@ -176,11 +176,11 @@ exports[`command code emitter should emit \`store attribute\` command 1`] = `
 }"
 `;
 
-exports[`command code emitter should emit \`store text\` command 1`] = `"vars.put(\\"myVar\\", $(Selectors.byId(\\"someElement\\")).text());"`;
+exports[`command code emitter should emit \`store text\` command 1`] = `"vars.put(\\"myVar\\", $(\\"#someElement\\").text());"`;
 
 exports[`command code emitter should emit \`store title\` command 1`] = `"vars.put(\\"myVar\\", Selenide.title());"`;
 
-exports[`command code emitter should emit \`store value\` command 1`] = `"vars.put(\\"myVar\\", $(Selectors.byId(\\"someElement\\")).getAttribute(\\"value\\"));"`;
+exports[`command code emitter should emit \`store value\` command 1`] = `"vars.put(\\"myVar\\", $(\\"#someElement\\").getAttribute(\\"value\\"));"`;
 
 exports[`command code emitter should emit \`store window handle\` command 1`] = `"vars.put(\\"windowName\\", WebDriverRunner.getWebDriver().getWindowHandle());"`;
 
@@ -188,7 +188,7 @@ exports[`command code emitter should emit \`store xpath count\` command 1`] = `"
 
 exports[`command code emitter should emit \`store\` command 1`] = `"vars.put(\\"myVar\\", \\"some value\\");"`;
 
-exports[`command code emitter should emit \`submit\` command 1`] = `"$(Selectors.byId(\\"form\\")).submit();"`;
+exports[`command code emitter should emit \`submit\` command 1`] = `"$(\\"#form\\").submit();"`;
 
 exports[`command code emitter should emit \`times\` command 1`] = `
 Object {
@@ -198,33 +198,33 @@ for(int i = 0; i < times; i++) {",
 }
 `;
 
-exports[`command code emitter should emit \`type\` command 1`] = `"$(Selectors.byId(\\"input\\")).val(\\"example input\\");"`;
+exports[`command code emitter should emit \`type\` command 1`] = `"$(\\"#input\\").val(\\"example input\\");"`;
 
-exports[`command code emitter should emit \`uncheck\` command 1`] = `"$(Selectors.byId(\\"f\\")).setSelected(false);"`;
+exports[`command code emitter should emit \`uncheck\` command 1`] = `"$(\\"#f\\").setSelected(false);"`;
 
-exports[`command code emitter should emit \`verify checked\` command 1`] = `"$(Selectors.byId(\\"check\\")).shouldBe(selected);"`;
+exports[`command code emitter should emit \`verify checked\` command 1`] = `"$(\\"#check\\").shouldBe(selected);"`;
 
-exports[`command code emitter should emit \`verify editable\` command 1`] = `"$(Selectors.byId(\\"text\\")).shouldBe(enabled, not(readonly));"`;
+exports[`command code emitter should emit \`verify editable\` command 1`] = `"$(\\"#text\\").shouldBe(enabled, not(readonly));"`;
 
-exports[`command code emitter should emit \`verify element not present\` command 1`] = `"$(Selectors.byId(\\"element\\")).shouldNot(exist);"`;
+exports[`command code emitter should emit \`verify element not present\` command 1`] = `"$(\\"#element\\").shouldNot(exist);"`;
 
-exports[`command code emitter should emit \`verify element present\` command 1`] = `"$(Selectors.byId(\\"element\\")).should(exist);"`;
+exports[`command code emitter should emit \`verify element present\` command 1`] = `"$(\\"#element\\").should(exist);"`;
 
-exports[`command code emitter should emit \`verify not checked\` command 1`] = `"$(Selectors.byId(\\"check\\")).shouldNotBe(checked);"`;
+exports[`command code emitter should emit \`verify not checked\` command 1`] = `"$(\\"#check\\").shouldNotBe(checked);"`;
 
-exports[`command code emitter should emit \`verify not editable\` command 1`] = `"$(Selectors.byId(\\"text\\")).shouldNotBe(enabled);"`;
+exports[`command code emitter should emit \`verify not editable\` command 1`] = `"$(\\"#text\\").shouldNotBe(enabled);"`;
 
-exports[`command code emitter should emit \`verify not selected value\` command 1`] = `"$(Selectors.byId(\\"select\\")).shouldNotHave(value(\\"test\\"));"`;
+exports[`command code emitter should emit \`verify not selected value\` command 1`] = `"$(\\"#select\\").shouldNotHave(value(\\"test\\"));"`;
 
-exports[`command code emitter should emit \`verify not text\` command 1`] = `"$(Selectors.byId(\\"test\\")).shouldNotHave(text(\\"text\\"));"`;
+exports[`command code emitter should emit \`verify not text\` command 1`] = `"$(\\"#test\\").shouldNotHave(text(\\"text\\"));"`;
 
-exports[`command code emitter should emit \`verify selected value\` command 1`] = `"$(Selectors.byId(\\"select\\")).shouldHave(value(\\"test\\"));"`;
+exports[`command code emitter should emit \`verify selected value\` command 1`] = `"$(\\"#select\\").shouldHave(value(\\"test\\"));"`;
 
-exports[`command code emitter should emit \`verify text\` command 1`] = `"$(Selectors.byId(\\"test\\")).shouldHave(text(\\"some text that should be here\\"));"`;
+exports[`command code emitter should emit \`verify text\` command 1`] = `"$(\\"#test\\").shouldHave(text(\\"some text that should be here\\"));"`;
 
 exports[`command code emitter should emit \`verify title\` command 1`] = `"assertEquals(Selenide.title(), \\"example title\\");"`;
 
-exports[`command code emitter should emit \`verify value\` command 1`] = `"$(Selectors.byId(\\"select\\")).shouldHave(value(\\"test\\"));"`;
+exports[`command code emitter should emit \`verify value\` command 1`] = `"$(\\"#select\\").shouldHave(value(\\"test\\"));"`;
 
 exports[`command code emitter should emit \`verify\` command 1`] = `"assertEquals(vars.get(\\"varrrName\\").toString(), \\"blah\\");"`;
 
