@@ -1,5 +1,8 @@
 # Changelog
 
+## v0.1.2
+- Update logo icons
+
 ## v0.1.1
 - Add static import for Selenide class
 - Change locator for ID 
