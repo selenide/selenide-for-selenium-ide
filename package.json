@@ -1,7 +1,12 @@
 {
-  "name": "selenium-ide-extension-boilerplate",
+  "name": "Selenide for Selenium IDE",
   "version": "0.1.2",
-  "repository": "git@github.com:SeleniumHQ/selenium-ide.git",
+  "description": "A Selenium IDE plugin to export to Selenide code",
+  "author": "Dmytro Stekanov <dstekanov.tech@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/selenide/selenide-for-selenium-ide.git"
+  },
   "license": "MIT",
   "private": true,
   "scripts": {
