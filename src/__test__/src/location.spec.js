@@ -22,21 +22,21 @@ describe('location code emitter', () => {
     const type = 'link';
     const selector = 'someLink';
     return expect(emit(`${type}=${selector}`)).resolves.toBe(
-      `Selectors.byLinkText("${selector}")`
+      `byLinkText("${selector}")`
     );
   });
   it('should emit linkText locator', () => {
     const type = 'linkText';
     const selector = 'someLink';
     return expect(emit(`${type}=${selector}`)).resolves.toBe(
-      `Selectors.byLinkText("${selector}")`
+      `byLinkText("${selector}")`
     );
   });
   it('should emit partialLinkText locator', () => {
     const type = 'partialLinkText';
     const selector = 'someLink';
     return expect(emit(`${type}=${selector}`)).resolves.toBe(
-      `Selectors.byPartialLinkText("${selector}")`
+      `byPartialLinkText("${selector}")`
     );
   });
   it('should emit css locator', () => {
@@ -62,18 +62,18 @@ describe('location code emitter', () => {
     const type = 'xpath';
     const selector = 'someXpath';
     return expect(emit(`${type}=${selector}`)).resolves.toBe(
-      `Selectors.byXpath("${selector}")`
+      `byXpath("${selector}")`
     );
   });
   it('should emit implicit xpath locator', () => {
     const selector = '//test=xpath';
-    return expect(emit(selector)).resolves.toBe(`Selectors.byXpath("${selector}")`);
+    return expect(emit(selector)).resolves.toBe(`byXpath("${selector}")`);
   });
   it('should emit name locator', () => {
     const type = 'name';
     const selector = 'someName';
     return expect(emit(`${type}=${selector}`)).resolves.toBe(
-      `Selectors.byName("${selector}")`
+      `byName("${selector}")`
     );
   });
 });

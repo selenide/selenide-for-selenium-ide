@@ -1,5 +1,5 @@
 {
-  "name": "Selenide for Selenium IDE",
+  "name": "selenide-for-selenium-ide",
   "version": "0.1.2",
   "description": "A Selenium IDE plugin to export to Selenide code",
   "author": "Dmytro Stekanov <dstekanov.tech@gmail.com>",

@@ -367,7 +367,7 @@ async function emitMouseMove(locator) {
 
 async function emitMouseOut() {
   return Promise.resolve(
-    `actions().moveToElement($(Selectors.byTagName("body")), 0, 0).perform();`
+    `actions().moveToElement($(byTagName("body")), 0, 0).perform();`
   );
 }
 

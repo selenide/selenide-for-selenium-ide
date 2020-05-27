@@ -8,8 +8,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.WebDriverRunner;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,8 +56,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.WebDriverRunner;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -147,8 +147,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.WebDriverRunner;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -167,7 +167,7 @@ public class LoginTest {
   }
   public void login() {
     open(\\"https://the-internet.herokuapp.com/\\");
-    $(Selectors.byLinkText(\\"Form Authentication\\")).click();
+    $(byLinkText(\\"Form Authentication\\")).click();
     $(\\"#username\\").val(vars.get(\\"username\\").toString());
     $(\\"#password\\").val(vars.get(\\"password\\").toString());
     $(\\".fa\\").click();
@@ -196,8 +196,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.WebDriverRunner;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -226,7 +226,7 @@ public class DefaultSuiteTest {
   public void selectwindow() {
     open(\\"http://the-internet.herokuapp.com/windows\\");
     vars.put(\\"window_handles\\", WebDriverRunner.getWebDriver().getWindowHandles());
-    $(Selectors.byLinkText(\\"Click Here\\")).click();
+    $(byLinkText(\\"Click Here\\")).click();
     vars.put(\\"win9425\\", waitForWindow(2000));
     switchTo().window(vars.get(\\"win9425\\").toString());
     assertEquals(title(), \\"New Window\\");
@@ -247,8 +247,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.WebDriverRunner;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -277,7 +277,7 @@ public class DefaultSuiteTest {
   public void selectwindow() {
     open(\\"http://the-internet.herokuapp.com/windows\\");
     vars.put(\\"window_handles\\", WebDriverRunner.getWebDriver().getWindowHandles());
-    $(Selectors.byLinkText(\\"Click Here\\")).click();
+    $(byLinkText(\\"Click Here\\")).click();
     vars.put(\\"win9425\\", waitForWindow(2000));
     switchTo().window(vars.get(\\"win9425\\").toString());
     assertEquals(title(), \\"New Window\\");
@@ -290,7 +290,7 @@ public class DefaultSuiteTest {
   public void selectwindow() {
     open(\\"http://the-internet.herokuapp.com/windows\\");
     vars.put(\\"window_handles\\", WebDriverRunner.getWebDriver().getWindowHandles());
-    $(Selectors.byLinkText(\\"Click Here\\")).click();
+    $(byLinkText(\\"Click Here\\")).click();
     vars.put(\\"win9425\\", waitForWindow(2000));
     switchTo().window(vars.get(\\"win9425\\").toString());
     assertEquals(title(), \\"New Window\\");
@@ -307,8 +307,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.WebDriverRunner;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -346,8 +346,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.WebDriverRunner;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -386,8 +386,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.WebDriverRunner;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -406,7 +406,7 @@ public class ValidcredentialsTest {
   }
   public void login() {
     open(\\"https://the-internet.herokuapp.com/\\");
-    $(Selectors.byLinkText(\\"Form Authentication\\")).click();
+    $(byLinkText(\\"Form Authentication\\")).click();
     $(\\"#username\\").val(vars.get(\\"username\\").toString());
     $(\\"#password\\").val(vars.get(\\"password\\").toString());
     $(\\".fa\\").click();
@@ -429,8 +429,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.WebDriverRunner;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -460,9 +460,9 @@ public class SelectwindowTest {
   public void selectwindow() {
     open(\\"http://the-internet.herokuapp.com/\\");
     WebDriverRunner.getWebDriver().manage().window().setSize(new Dimension(1260, 1027));
-    $(Selectors.byLinkText(\\"Multiple Windows\\")).click();
+    $(byLinkText(\\"Multiple Windows\\")).click();
     vars.put(\\"window_handles\\", WebDriverRunner.getWebDriver().getWindowHandles());
-    $(Selectors.byLinkText(\\"Click Here\\")).click();
+    $(byLinkText(\\"Click Here\\")).click();
     vars.put(\\"win9625\\", waitForWindow(2000));
     vars.put(\\"root\\", WebDriverRunner.getWebDriver().getWindowHandle());
     switchTo().window(vars.get(\\"win9625\\").toString());

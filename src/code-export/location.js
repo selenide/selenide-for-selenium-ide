@@ -32,15 +32,15 @@ function emitId(selector) {
 }
 
 function emitName(selector) {
-  return Promise.resolve(`Selectors.byName("${selector}")`);
+  return Promise.resolve(`byName("${selector}")`);
 }
 
 function emitLink(selector) {
-  return Promise.resolve(`Selectors.byLinkText("${selector}")`);
+  return Promise.resolve(`byLinkText("${selector}")`);
 }
 
 function emitPartialLinkText(selector) {
-  return Promise.resolve(`Selectors.byPartialLinkText("${selector}")`);
+  return Promise.resolve(`byPartialLinkText("${selector}")`);
 }
 
 function emitCss(selector) {
@@ -48,5 +48,5 @@ function emitCss(selector) {
 }
 
 function emitXpath(selector) {
-  return Promise.resolve(`Selectors.byXpath("${selector}")`);
+  return Promise.resolve(`byXpath("${selector}")`);
 }

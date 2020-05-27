@@ -46,9 +46,9 @@ exports[`command code emitter should emit \`choose cancel on visible prompt\` co
 
 exports[`command code emitter should emit \`choose ok on visible confirmation\` command 1`] = `"confirm();"`;
 
-exports[`command code emitter should emit \`click at\` command 1`] = `"$(Selectors.byLinkText(\\"button\\")).click();"`;
+exports[`command code emitter should emit \`click at\` command 1`] = `"$(byLinkText(\\"button\\")).click();"`;
 
-exports[`command code emitter should emit \`click\` command 1`] = `"$(Selectors.byLinkText(\\"button\\")).click();"`;
+exports[`command code emitter should emit \`click\` command 1`] = `"$(byLinkText(\\"button\\")).click();"`;
 
 exports[`command code emitter should emit \`close\` command 1`] = `"WebDriverRunner.closeWindow();"`;
 
@@ -59,11 +59,11 @@ Object {
 }
 `;
 
-exports[`command code emitter should emit \`double click at\` command 1`] = `"$(Selectors.byLinkText(\\"button\\")).doubleClick();"`;
+exports[`command code emitter should emit \`double click at\` command 1`] = `"$(byLinkText(\\"button\\")).doubleClick();"`;
 
-exports[`command code emitter should emit \`double click\` command 1`] = `"$(Selectors.byLinkText(\\"button\\")).doubleClick();"`;
+exports[`command code emitter should emit \`double click\` command 1`] = `"$(byLinkText(\\"button\\")).doubleClick();"`;
 
-exports[`command code emitter should emit \`drag and drop to object\` command 1`] = `"$(Selectors.byLinkText(\\"dragged\\")).dragAndDropTo(Selectors.byLinkText(\\"dropped\\"));"`;
+exports[`command code emitter should emit \`drag and drop to object\` command 1`] = `"$(byLinkText(\\"dragged\\")).dragAndDropTo(byLinkText(\\"dropped\\"));"`;
 
 exports[`command code emitter should emit \`echo\` command 1`] = `"System.out.println(\\"blah\\");"`;
 
@@ -127,7 +127,7 @@ exports[`command code emitter should emit \`mouse move at\` event 1`] = `"action
 
 exports[`command code emitter should emit \`mouse move\` event 1`] = `"actions().moveToElement($(\\"#button\\")).perform();"`;
 
-exports[`command code emitter should emit \`mouse out\` event 1`] = `"actions().moveToElement($(Selectors.byTagName(\\"body\\")), 0, 0).perform();"`;
+exports[`command code emitter should emit \`mouse out\` event 1`] = `"actions().moveToElement($(byTagName(\\"body\\")), 0, 0).perform();"`;
 
 exports[`command code emitter should emit \`mouse over\` event 1`] = `"actions().moveToElement($(\\"#button\\")).perform();"`;
 
@@ -171,7 +171,7 @@ exports[`command code emitter should emit \`setWindowSize\` 1`] = `"WebDriverRun
 
 exports[`command code emitter should emit \`store attribute\` command 1`] = `
 "{
-  String attribute = $(Selectors.byXpath(\\"button[3]\\")).getAttribute(\\"id\\");
+  String attribute = $(byXpath(\\"button[3]\\")).getAttribute(\\"id\\");
   vars.put(\\"myVar\\", attribute);
 }"
 `;
@@ -184,7 +184,7 @@ exports[`command code emitter should emit \`store value\` command 1`] = `"vars.p
 
 exports[`command code emitter should emit \`store window handle\` command 1`] = `"vars.put(\\"windowName\\", WebDriverRunner.getWebDriver().getWindowHandle());"`;
 
-exports[`command code emitter should emit \`store xpath count\` command 1`] = `"vars.put(\\"myVar\\", $$(Selectors.byXpath(\\"button\\")).size());"`;
+exports[`command code emitter should emit \`store xpath count\` command 1`] = `"vars.put(\\"myVar\\", $$(byXpath(\\"button\\")).size());"`;
 
 exports[`command code emitter should emit \`store\` command 1`] = `"vars.put(\\"myVar\\", \\"some value\\");"`;
 
