@@ -1,6 +1,6 @@
 {
   "name": "selenide-for-selenium-ide",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A Selenium IDE plugin to export to Selenide code",
   "author": "Dmytro Stekanov <dstekanov.tech@gmail.com>",
   "repository": {
