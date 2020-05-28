@@ -2,7 +2,9 @@
 
 ## Getting Started
 
-This is a new plugin for Selenium IDE that allows you to export your tests to Selenide (Java) code.
+This is a new plugin for Selenium IDE that allows you to export your tests to Selenide (Java) code.  
+
+It can be installed through the [Chrome Web Store](https://chrome.google.com/webstore/detail/selenide-for-selenium-ide/nlkfobhoffngaakgdbkdnmmjcchibcba) or the [Mozila Addons Market](https://addons.mozilla.org/ru/firefox/addon/selenide-for-selenium-ide/).
 
 After installing the plugin you will see a new icon in your navigation bar which contains the Selenide logo.
 
