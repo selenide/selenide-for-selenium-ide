@@ -1,6 +1,6 @@
 {
   "name": "selenide-for-selenium-ide",
-  "version": "0.1.3",
+  "version": "1.0.0",
   "description": "A Selenium IDE plugin to export to Selenide code",
   "author": "Dmytro Stekanov <dstekanov.tech@gmail.com>",
   "repository": {
@@ -16,7 +16,7 @@
     "test": "jest",
     "lint": "eslint webpack.config.babel.js src/ --ext .js --ext .jsx",
     "version": "node scripts/version.js && git add src/manifest.json",
-    "release-prep": "yarn && yarn test && yarn build && yarn lint",
+    "release-prep": "yarn && yarn test && yarn build:prod && yarn lint",
     "release:firefox": "cd build && web-ext-submit",
     "release:chrome": "cd build && webstore upload --auto-publish",
     "postpublish": "yarn build:prod && npx ./scripts/gh-release.js"

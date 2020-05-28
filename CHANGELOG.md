@@ -1,5 +1,8 @@
 # Changelog
 
+## v1.0.0
+- Release public version
+
 ## v0.1.3
 - Polish package.json -- thanks to Boris Osipov <osipov.boris@gmail.com> for PR #2
 - add .gitattributes to handle line-endings
