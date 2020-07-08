@@ -24,7 +24,7 @@ Here's a sample `pom.xml` to help you get started.
 <project>
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.selenide</groupId>
-  <artifactId>selenide-for-seleniumd-ide</artifactId>
+  <artifactId>selenide-for-selenium-ide</artifactId>
   <version>1</version>
   <url>http://maven.apache.org</url>
   <dependencies>
@@ -48,7 +48,7 @@ Or `build.gradle`:
 ```
 apply plugin: 'java'
 
-group 'selenide-for-seleniumd-ide'
+group 'selenide-for-selenium-ide'
 version '1.0-SNAPSHOT'
 
 repositories {
