@@ -18,32 +18,7 @@ You should be able to take the exported Java file and place it into a standard M
 
 You can look at some project examples here: https://github.com/selenide-examples
 
-Here's a sample `pom.xml` to help you get started.
-
-```xml
-<project>
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>org.selenide</groupId>
-  <artifactId>selenide-for-selenium-ide</artifactId>
-  <version>1</version>
-  <url>http://maven.apache.org</url>
-  <dependencies>
-    <dependency>
-        <groupId>com.codeborne</groupId>
-        <artifactId>selenide</artifactId>
-        <version>5.12.2</version>
-    </dependency>
-    <dependency>
-        <groupId>org.junit.jupiter</groupId>
-        <artifactId>junit-jupiter-api</artifactId>
-        <version>5.6.2</version>
-        <scope>test</scope>
-    </dependency>
-  </dependencies>
-</project>
-```
-
-Or `build.gradle`:
+Here's a sample `build.gradle` to help you get started:
 
 ```
 apply plugin: 'java'
@@ -61,8 +36,33 @@ test {
 
 dependencies {
 	testCompile "org.junit.jupiter:junit-jupiter-api:5.6.2"
-	compile "com.codeborne:selenide:5.12.2"
+	compile "com.codeborne:selenide:5.13.0"
 }
+```
+
+Or `pom.xml`:
+
+```xml
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.selenide</groupId>
+  <artifactId>selenide-for-selenium-ide</artifactId>
+  <version>1</version>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+        <groupId>com.codeborne</groupId>
+        <artifactId>selenide</artifactId>
+        <version>5.13.0</version>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.6.2</version>
+        <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
 ```
 
 ## Building The Project
