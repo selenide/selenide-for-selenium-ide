@@ -68,7 +68,7 @@ browser.runtime.onMessageExternal.addListener(
             enableDescriptionAsComment
           })
           .then(suite => {
-            sendResponse({
+            return sendResponse({
               filename: suite.filename,
               body: suite.body
             });
