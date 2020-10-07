@@ -36,7 +36,7 @@ test {
 
 dependencies {
 	testCompile "org.junit.jupiter:junit-jupiter-api:5.6.2"
-	compile "com.codeborne:selenide:5.13.0"
+	compile "com.codeborne:selenide:5.15.0"
 }
 ```
 
@@ -53,7 +53,7 @@ Or `pom.xml`:
     <dependency>
         <groupId>com.codeborne</groupId>
         <artifactId>selenide</artifactId>
-        <version>5.13.0</version>
+        <version>5.15.0</version>
     </dependency>
     <dependency>
         <groupId>org.junit.jupiter</groupId>
