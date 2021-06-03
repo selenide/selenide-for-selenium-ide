@@ -59,6 +59,6 @@
   "dependencies": {
     "@seleniumhq/side-utils": "^3.16.0",
     "ua-parser-js": "^0.7.19",
-    "webextension-polyfill": "https://github.com/corevo/webextension-polyfill#2cc27453b501e4426eb6741943fbb4041c0d18f5"
+    "webextension-polyfill": "0.8.0"
   }
 }
