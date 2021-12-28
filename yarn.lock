@@ -1273,18 +1273,18 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@seleniumhq/side-model@^3.17.0":
-  version "3.17.0"
-  resolved "https://registry.yarnpkg.com/@seleniumhq/side-model/-/side-model-3.17.0.tgz#3b5395dcdd609e077237df5b34b3fb0f2b118b9e"
-  integrity sha512-70BMsF8j/+GzsrGhRDO4KLuHQoyg+vapYZCY9z7O0jFtN3KvxG4Tr97dKmMSu9Tx/Z1zHjxEisicLGvC1hnjSw==
+"@seleniumhq/side-model@^3.17.2":
+  version "3.17.2"
+  resolved "https://registry.yarnpkg.com/@seleniumhq/side-model/-/side-model-3.17.2.tgz#7e4f8b3bf69856efa3816c1ebed53aea6a0cb7f6"
+  integrity sha512-vpqzx9aDm/rAvX8D/6+gYW4kln5DzkquZ5quOrZGgUWv5XK6NrQDoeWwdymYqZ4TF3L40azdQaUX6CdanRlsxQ==
 
-"@seleniumhq/side-utils@^3.16.0":
-  version "3.17.0"
-  resolved "https://registry.yarnpkg.com/@seleniumhq/side-utils/-/side-utils-3.17.0.tgz#d119f0d62017ff11f22243759454a0809f2457bd"
-  integrity sha512-R2BsfIfx8URlFVv6JFNmYvjBvmi0M6spvTn19G3a68bpGjPWaXKi3ZWWV38TKxDQF7L5wfv75zMM1JOGNnHHuA==
+"@seleniumhq/side-utils@^3.17.2":
+  version "3.17.2"
+  resolved "https://registry.yarnpkg.com/@seleniumhq/side-utils/-/side-utils-3.17.2.tgz#355c888e5f47b986e71f78577a25ec5e7afffb3c"
+  integrity sha512-GevRELP55Bh0GyalJnoRiQrzWBGbO0jIMRUWBn7iAMloCAK2A9JCxkpREeTvHQFby7NbZHG6ZyTyI98y+wgrTg==
   dependencies:
-    "@seleniumhq/side-model" "^3.17.0"
-    ua-parser-js "^0.7.17"
+    "@seleniumhq/side-model" "^3.17.2"
+    ua-parser-js "0.7.28"
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -9818,7 +9818,12 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-ua-parser-js@^0.7.17, ua-parser-js@^0.7.19:
+ua-parser-js@0.7.28:
+  version "0.7.28"
+  resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.28.tgz#8ba04e653f35ce210239c64661685bf9121dec31"
+  integrity sha512-6Gurc1n//gjp9eQNXjD9O3M/sMwVtN5S8Lv9bvOYBfKfDNiIIhqiyi01vMBO45u4zkDE420w/e0se7Vs+sIg+g==
+
+ua-parser-js@^0.7.19:
   version "0.7.21"
   resolved "https://registry.yarnpkg.com/ua-parser-js/-/ua-parser-js-0.7.21.tgz#853cf9ce93f642f67174273cc34565ae6f308777"
   integrity sha512-+O8/qh/Qj8CgC6eYBVBykMrNtp5Gebn4dlGD/kKXVkJNDwyrAwSIqwz8CDf+tsAIWVycKcku6gIXJ0qwx/ZXaQ==
