@@ -68,9 +68,14 @@ browser.runtime.onMessageExternal.addListener(
             enableDescriptionAsComment
           })
           .then(suite => {
-            sendResponse({
+            return sendResponse({
               filename: suite.filename,
               body: suite.body
+            });
+          })
+          .catch(e => {
+            return sendResponse({
+              error: e.message
             });
           });
       } else {
@@ -85,9 +90,14 @@ browser.runtime.onMessageExternal.addListener(
             enableDescriptionAsComment
           })
           .then(test => {
-            sendResponse({
+            return sendResponse({
               filename: test.filename,
               body: test.body
+            });
+          })
+          .catch(e => {
+            return sendResponse({
+              error: e.message
             });
           });
       }
